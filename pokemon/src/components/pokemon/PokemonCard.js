@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import styled from 'styled-components';
 
+import loading from '../pokemon/loading.gif';
+
 const Sprite = styled.img`
   width: 5em;
   height: 5em;
@@ -34,7 +36,11 @@ export default class PokemonCard extends Component {
         <div className="card">
           <h5 className="card-header">{this.state.pokemonIndex}</h5>
           {this.state.imageLoading ? (
-
+            <img
+              src={loading}
+              style={{ width: '5em', height: '5em' }}
+              className="card-img-top rounded mx-auto d-block mt-2"
+            />
           ) : null}
           <Sprite
             className="card-img-top rounded mx-auto mt-2"
@@ -42,8 +48,11 @@ export default class PokemonCard extends Component {
             onError={() => this.setState({ toManyRequests: true })}
             src={this.state.imageUrl}
             style={
-                this.state.toManyRequests ? { display: "none"} :
-                this.state.imageLoading ? null : { display: "block"}
+              this.state.toManyRequests
+                ? { display: 'none' }
+                : this.state.imageLoading
+                ? null
+                : { display: 'block' }
             }
           />
           {this.state.toManyRequests ? (
