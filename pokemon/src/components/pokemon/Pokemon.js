@@ -81,11 +81,78 @@ export default class Pokemon extends Component {
         .join(' ');
     });
 
-    const evs = pokemonRes.data.stats.filter((stat) => {
-      if (stat.effort > 0) {
-        return true;
+    const evs = pokemonRes.data.stats
+      .filter((stat) => {
+        if (stat.effort > 0) {
+          return true;
+        }
         return false;
-      }
+      })
+      .map((stat) => {
+        return `${stat.effort} ${stat.stat.name}`
+          .toLowerCase()
+          .split('-')
+          .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+          .join(' ');
+      })
+      .join(', ');
+
+    /// Get Pokemon Description, Catch Rate, Egg Group, Genter Ratio, Match Steps
+
+    await axios.get(pokemonSpeciesUrl).then((res) => {
+      let description = '';
+      res.data.flavor_text_entries.some((flavor) => {
+        if (flavor.language.name === 'en') {
+          description = flavor.flavor_text;
+          return;
+        }
+      });
+
+      const femaleRate = res.data['gender_rate'];
+      const genderRatioFemale = 12.5 * femaleRate;
+      const genderRatioMale = 12.5 * (8 - femaleRate);
+
+      const catchRate = Math.round((100 / 255) * res.data['capture_rate']);
+
+      const eggGroups = res.data['egg_groups']
+        .map((group) => {
+          return group.name
+            .toLowerCase()
+            .split('-')
+            .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+            .join(' ');
+        })
+        .join(', ');
+
+      const hatchSteps = 255 * (res.data['hatch_counter'] + 1);
+
+      this.setState({
+        description,
+        genderRatioFemale,
+        genderRatioMale,
+        catchRate,
+        eggGroups,
+        hatchSteps,
+      });
+    });
+
+    this.setState({
+      imageUrl,
+      pokemonIndex,
+      name,
+      types,
+      stats: {
+        hp,
+        attack,
+        defense,
+        speed,
+        specialAttack,
+        specialDefense,
+      },
+      height,
+      weight,
+      abilities,
+      evs,
     });
   }
   render() {
