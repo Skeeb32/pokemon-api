@@ -360,6 +360,14 @@ export default class Pokemon extends Component {
             </div>
           </div>
         </div>
+          <div className="card-footer text-muted">
+            Data From{' '}
+            <a href="https://pokeapi.co/" target="_blank" className="card-link">PokeAPI.co</a>
+          </div>
+
+
+
+
       </div>
       </div>
       </div>
