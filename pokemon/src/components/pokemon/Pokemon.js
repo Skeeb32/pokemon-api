@@ -207,6 +207,15 @@ export default class Pokemon extends Component {
               </div>
             </div>
           </div>
+          <div className ="card-body">
+            <div className="row align-items-center">
+              <div className="col-md-3">
+                <img
+                src={this.state.imageUrl}
+                className="card-img-top rounded mx-auto mt-2" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );
