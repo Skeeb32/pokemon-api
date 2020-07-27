@@ -22,9 +22,6 @@ const TYPE_COLORS = {
   water: '3295F6',
 };
 
-
-
-
 export default class Pokemon extends Component {
   state = {
     name: '',
@@ -187,6 +184,26 @@ export default class Pokemon extends Component {
             <div className="row">
               <div className="col-5">
                 <h5>{this.state.pokemonIndex}</h5>
+              </div>
+              <div className="col-7">
+                <div className="float-right">
+                  {this.state.types.map(type => (
+                    <span
+                      key={type}
+                      className="badge badge-primary badge-pill mr-1"
+                      style={{
+                        backgroundColor: `#${TYPE_COLORS[type]}`,
+                        color: 'white',
+                      }}
+                    >
+                      {type
+                        .toLowerCase()
+                        .split('-')
+                        .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+                        .join(' ')}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
