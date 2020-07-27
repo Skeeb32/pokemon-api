@@ -338,9 +338,30 @@ export default class Pokemon extends Component {
                 </div>
               </div>
               </div>
+              <div className="row mt-1">
+                <div className="col">
+                  <p className="p-2">{this.state.description}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr />
+          <div className="card-body">
+            <h5 className="card-title text-center">Profile</h5>
+            <div className="row">
+              <div className="col-md-6">
+                <div className="row"> 
+                <div className="col-md-6">
+                  <h6 className="float-right">Height:</h6>
+                </div>
+                <div className="col-md-6">
+                    <h6 className="float-left">{this.state.height} ft.</h6>
+                </div>
             </div>
           </div>
         </div>
+      </div>
+      </div>
       </div>
     );
   }
