@@ -157,8 +157,16 @@ export default class Pokemon extends Component {
   }
   render() {
     return (
-      <div>
-        <h1>{this.state.name}</h1>
+      <div className="col">
+        <div className="card">
+          <div className="card-header">
+            <div className="row">
+              <div className="col-5">
+                <h5>{this.state.pokemonIndex}</h5>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
