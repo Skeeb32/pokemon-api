@@ -44,6 +44,7 @@ import './App.css';
 import NavBar from './components/layout/NavBar';
 import DashBoard from './components/layout/Dashboard';
 import Pokemon from './components/pokemon/Pokemon';
+import SearchBar from './components/search/SearchBar';
 
 import backgroundImage from './pattern.png'
 
