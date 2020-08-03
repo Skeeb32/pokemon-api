@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
  
 import styled from 'styled-components';
 
-import loading from '../pokemon/loading.gif';
+import loading from './loading.gif';
 
 const Sprite = styled.img`
   width: 5em;
