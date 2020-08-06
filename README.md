@@ -2,7 +2,7 @@
 <p align="center">
   <img  alt="Pokedex" height="128px" width="128px" src="https://raw.githubusercontent.com/Mondal10/Pokedex/master/public/assets/logo-128.png">
 </p>
-<h1 align="center"><a href="https://mondal10.github.io/Pokedex/#/page=0">Pokedex</a></h1>
+<h1 align="center"><a href="https://mondal10.github.io/Pokedex/#/page=0">Pokédex</a></h1>
 
 <h3 align="center">A self learning project to implement React and React Router</h3>
 
@@ -18,7 +18,7 @@
 - Run `npm start` to start the development server.
 - In your favourite browser open http://localhost:3000/#/page=0
 
-## Pokemon API link:
+## Pokémon API link:
 https://pokeapi.co/
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
